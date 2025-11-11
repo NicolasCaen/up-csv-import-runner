@@ -77,7 +77,14 @@ class UP_CSV_Runner_Menu {
         if (!empty($_POST['up_run_nonce']) && wp_verify_nonce($_POST['up_run_nonce'], 'up_run_import') && !empty($_FILES['csv_file']['tmp_name'])) {
             $runner = new UP_CSV_Runner_Import();
             $result = $runner->run($file, $_FILES['csv_file']['tmp_name']);
-            echo '<div class="updated"><p>Import exécuté.</p></div>';
+            $imported = isset($result['imported']) ? intval($result['imported']) : 0;
+            echo '<div class="updated"><p>Import terminé. Lignes importées: <strong>' . esc_html($imported) . '</strong>.</p>'; 
+            if (!empty($result['errors'])) {
+                echo '<p><strong>Erreurs:</strong></p><ul>'; 
+                foreach ($result['errors'] as $err) { echo '<li>' . esc_html($err) . '</li>'; }
+                echo '</ul>';
+            }
+            echo '</div>';
         }
         echo '<div class="wrap">';
         echo '<h1>Import: ' . esc_html(ucfirst($name)) . '</h1>';

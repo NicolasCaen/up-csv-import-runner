@@ -2,12 +2,12 @@
 /**
  * Plugin Name: UP CSV Import Runner
  * Description: Lecture et exécution des configurations XML d'import CSV.
- * Version: 0.1.1.0
+ * Version: 0.1.2.0
  * Author: GEHIN Nicolas
  */
 if (!defined('ABSPATH')) exit;
 
-if (!defined('UP_CSV_RUNNER_VERSION')) define('UP_CSV_RUNNER_VERSION', '0.1.1.0');
+if (!defined('UP_CSV_RUNNER_VERSION')) define('UP_CSV_RUNNER_VERSION', '0.1.2.0');
 if (!defined('UP_CSV_RUNNER_PATH')) define('UP_CSV_RUNNER_PATH', plugin_dir_path(__FILE__));
 if (!defined('UP_CSV_IMPORTER_CONFIG_DIR')) define('UP_CSV_IMPORTER_CONFIG_DIR', WP_PLUGIN_DIR . '/up-csv-importer/config-settings/');
 
